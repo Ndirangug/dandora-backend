@@ -20,7 +20,8 @@ class Payment extends Model
         'for_month',
         'purpose', // Booking or Tenancy
         'tenancy_id',
-        'booking_id'
+        'booking_id',
+        'tenant_id'
     ];
 
     /**
@@ -54,6 +55,8 @@ class Payment extends Model
         'for_month' => 'datetime',
         'amount' => 'double',
         'tenancy_id' => 'integer',
-        'booking_id' => 'integer'
+        'booking_id' => 'integer',
+        'tenant_id' => 'integer'
+        
     ];
 }
