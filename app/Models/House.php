@@ -20,6 +20,9 @@ class House extends Model
         'bedrooms',
         'rent',
         'phase',
+        'photo1',
+        'photo2',
+        'photo3',
     ];
 
     /**

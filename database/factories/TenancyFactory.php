@@ -22,7 +22,11 @@ class TenancyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'start_date' => now(),
+            'end_date' => date_add(now(), date_interval_create_from_date_string("40 days")),
+            'expected_end_date' => date_add(now(), date_interval_create_from_date_string("40 days")),
+            'house_id' => random_int(51, 60),
+            'tenant_id' => random_int(11, 20),
         ];
     }
 }

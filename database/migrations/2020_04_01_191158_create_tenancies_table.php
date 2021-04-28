@@ -16,6 +16,11 @@ class CreateTenanciesTable extends Migration
         Schema::create('tenancies', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->timestamp('start_date')->default(now());
+            $table->timestamp('end_date')->default(now());
+            $table->timestamp('expected_end_date')->default(now());
+            $table->foreignId('house_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tenant_id')->constrained()->onDelete('cascade');
         });
     }
 

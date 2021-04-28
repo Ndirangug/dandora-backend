@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TenancySeeder extends Seeder
 {
@@ -13,6 +14,7 @@ class TenancySeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('tenancies')->delete();
+        \App\Models\Tenancy::factory(10)->create();
     }
 }

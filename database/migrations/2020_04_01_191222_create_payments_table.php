@@ -16,6 +16,11 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->timestamp('date')->default(now());
+            $table->timestamp('for_month')->default(now());
+            $table->double('amount');
+            $table->string('purpose');
+            $table->foreignId('tenancy_id')->constrained('tenancies')->onDelete('cascade');
         });
     }
 

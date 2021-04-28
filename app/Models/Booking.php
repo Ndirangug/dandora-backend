@@ -58,6 +58,6 @@ class Booking extends Model
     protected $casts = [
         'date_booked' => 'datetime',
         'expected_occupy_date' => 'datetime',
-        'paid' => 'bool',
+        'paid' => 'boolean',
     ];
 }

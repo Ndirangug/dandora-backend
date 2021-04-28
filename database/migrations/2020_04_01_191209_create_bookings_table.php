@@ -16,6 +16,11 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->timestamp('date_booked')->default(now());
+            $table->timestamp('expected_occupy_date')->default(now());
+            $table->boolean('paid');
+            $table->foreignId('house_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tenant_id')->constrained()->onDelete('cascade');
         });
     }
 

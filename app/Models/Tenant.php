@@ -19,7 +19,7 @@ class Tenant extends Model
         'last_name',
         'email',
         'phone',
-        'status',
+        'status', //current or past or prospective
     ];
 
     /**

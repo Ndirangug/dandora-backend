@@ -22,7 +22,11 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'date' => now(),
+            'for_month' => now(),
+            'amount' => $this->faker->randomFloat(2, 1000.0),
+            'purpose' => $this->faker->randomElement(['booking', 'rent']),
+            'tenancy_id' => random_int(4, 13)
         ];
     }
 }
