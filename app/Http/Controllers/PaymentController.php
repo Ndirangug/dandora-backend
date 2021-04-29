@@ -14,19 +14,10 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        return Payment::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +26,10 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payment_array = $request->toArray();
+        
+        $payment = Payment::create($payment_array);
+        return $payment;
     }
 
     /**
@@ -46,19 +40,9 @@ class PaymentController extends Controller
      */
     public function show(Payment $payment)
     {
-        //
+        return $payment;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Payment $payment)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

@@ -14,19 +14,10 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        return Booking::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +26,10 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $booking_array = $request->toArray();
+        
+        $booking = Booking::create($booking_array);
+        return $booking;
     }
 
     /**
@@ -46,19 +40,9 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        //
+        return $booking;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Booking $booking)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

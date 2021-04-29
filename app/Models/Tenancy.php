@@ -25,6 +25,8 @@ class Tenancy extends Model
         'start_date',
         'end_date',
         'expected_end_date',
+        'house_id',
+        'tenant_id',
     ];
 
     /**
@@ -66,5 +68,7 @@ class Tenancy extends Model
         'start_date' => 'datetime',
         'end_date' => 'datetime',
         'expected_end_date' => 'datetime',
+        'house_id' => 'integer',
+        'tenant_id' => 'integer',
     ];
 }

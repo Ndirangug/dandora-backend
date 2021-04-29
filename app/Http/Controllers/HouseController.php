@@ -14,18 +14,10 @@ class HouseController extends Controller
      */
     public function index()
     {
-        //
+        return House::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +27,10 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $house_array = $request->toArray();
+        
+        $house = House::create($house_array);
+        return $house;
     }
 
     /**
@@ -46,19 +41,10 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        //
+        return $house;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\House  $house
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(House $house)
-    {
-        //
-    }
+    
 
     /**
      * Update the specified resource in storage.

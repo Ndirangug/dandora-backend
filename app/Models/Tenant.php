@@ -20,6 +20,7 @@ class Tenant extends Model
         'email',
         'phone',
         'status', //current or past or prospective
+        'password',
     ];
 
     /**
@@ -28,7 +29,6 @@ class Tenant extends Model
      * @var array
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 

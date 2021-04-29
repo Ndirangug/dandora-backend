@@ -18,6 +18,8 @@ class Booking extends Model
         'date_booked',
         'expected_occupy_date',
         'paid',
+        'house_id',
+        'tenant_id',
     ];
 
     /**
@@ -59,5 +61,7 @@ class Booking extends Model
         'date_booked' => 'datetime',
         'expected_occupy_date' => 'datetime',
         'paid' => 'boolean',
+        'house_id' => 'integer',
+        'tenant_id' => 'integer',
     ];
 }

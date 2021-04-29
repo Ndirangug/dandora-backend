@@ -1,0 +1,2 @@
+'{"firstName": "George", "lastName":"Ndirangu", "email": "any@gmail.com", "phone":"0746649576", "status":"current"}'
+curl -d '{"first_name": "George", "last_name":"Ndirangu", "email": "any@gmail.com", "phone":"0746649576", "status":"current"}'  localhost:8000/api/tenants/

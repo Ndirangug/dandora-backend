@@ -2,6 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TenantController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\HouseController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TenancyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/login', [TenantController::class, 'login']);
+
+
+Route::resource('tenants', TenantController::class);
+Route::resource('houses', HouseController::class);
+Route::resource('tenancies', TenancyController::class);
+Route::resource('bookings', BookingController::class);
+Route::resource('payments', PaymentController::class);

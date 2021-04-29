@@ -14,19 +14,10 @@ class TenancyController extends Controller
      */
     public function index()
     {
-        //
+        return Tenancy::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +26,10 @@ class TenancyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tenancy_array = $request->toArray();
+        
+        $tenancy = Tenancy::create($tenancy_array);
+        return $tenancy;
     }
 
     /**
@@ -46,19 +40,9 @@ class TenancyController extends Controller
      */
     public function show(Tenancy $tenancy)
     {
-        //
+        return $tenancy;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tenancy  $tenancy
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tenancy $tenancy)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
