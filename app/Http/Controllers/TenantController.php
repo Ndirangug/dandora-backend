@@ -80,13 +80,20 @@ class TenantController extends Controller
     */
     public function login(Request $request){
         $tenant_array = $request->toArray();
-        $tenant = Tenant::where('email', $tenant_array['email'])->first();
+
+        try {
+            $tenant = Tenant::where('email', $tenant_array['email'])->first();
         
-        if (Hash::check($tenant_array['password'], $tenant->password)) {
-            return $tenant;
-        } else {
-            return response()->json('Log in failed', 401, );
+            if (Hash::check($tenant_array['password'], $tenant->password)) {
+                return $tenant;
+            } else {
+                return response()->json('Log in failed', 401, );
+            }
+        } catch (\Throwable $th) {
+            return response()->json('User probably doesn\'t exist. Check your email', 401, );
         }
+        
+        
         
  
 

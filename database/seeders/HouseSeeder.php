@@ -14,7 +14,7 @@ class HouseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('houses')->delete();
-        \App\Models\House::factory(10)->create();
+        // DB::table('houses')->delete();
+        \App\Models\House::factory(100)->create();
     }
 }
