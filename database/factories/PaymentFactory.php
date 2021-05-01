@@ -21,12 +21,15 @@ class PaymentFactory extends Factory
      */
     public function definition()
     {
+        $date = $this->faker->dateTime('now', 'Africa/Nairobi');
+        
         return [
-            'date' => now(),
-            'for_month' => now(),
+            'date' => $date,
+            'for_month' => $this->faker->dateTimeBetween($date, '+90 days'),
             'amount' => $this->faker->randomFloat(2, 1000.0),
             'purpose' => $this->faker->randomElement(['booking', 'rent']),
-            'tenancy_id' => random_int(4, 13)
+            'tenancy_id' => random_int(4, 13),
+            'booking_id' => random_int(1, 11)
         ];
     }
 }

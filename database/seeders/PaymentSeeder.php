@@ -14,7 +14,7 @@ class PaymentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('payments')->delete();
-        \App\Models\Payment::factory(10)->create();
+        // DB::table('payments')->delete();
+        \App\Models\Payment::factory(200)->create();
     }
 }

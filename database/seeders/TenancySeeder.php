@@ -14,7 +14,7 @@ class TenancySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tenancies')->delete();
-        \App\Models\Tenancy::factory(10)->create();
+        // DB::table('tenancies')->delete();
+        \App\Models\Tenancy::factory(100)->create();
     }
 }

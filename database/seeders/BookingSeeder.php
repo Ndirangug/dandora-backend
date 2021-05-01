@@ -14,7 +14,7 @@ class BookingSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('bookings')->delete();
-        \App\Models\Booking::factory(10)->create();
+        // DB::table('bookings')->delete();
+        \App\Models\Booking::factory(100)->create();
     }
 }

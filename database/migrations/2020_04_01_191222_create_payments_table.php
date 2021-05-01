@@ -21,7 +21,10 @@ class CreatePaymentsTable extends Migration
             $table->double('amount');
             $table->string('purpose');
             $table->foreignId('tenancy_id')->constrained('tenancies')->onDelete('cascade');
+            $table->foreignId('booking_id')->constrained('bookings')->onDelete('cascade');
         });
+
+
     }
 
     /**
