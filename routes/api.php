@@ -7,6 +7,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TenancyController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,4 @@ Route::resource('houses', HouseController::class);
 Route::resource('tenancies', TenancyController::class);
 Route::resource('bookings', BookingController::class);
 Route::resource('payments', PaymentController::class);
+Route::resource('messages', MessageController::class);
