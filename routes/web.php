@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TenantController;
+use App\Http\Controllers\PaymentProxy;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +17,8 @@ use App\Http\Controllers\TenantController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/payment-proxy', [PaymentProxy::class, 'ipay']);
 
 
 
