@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use App\Models\Message;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+
+    public function broadcastMessage($text){
+        $tenants = Tenant::all('email');
+
+        Mail::raw($text, function ($message) {
+            $message->from('admin@dandora.com', 'Dandora Admin');
+            $message->subject('NEW MESSAGE FROM DANDORA WELFARE');
+            $message->to('ndirangu.mepawa@outlook.com')->cc($tenants);
+        });
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +27,8 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return Message::all();
+       return Message::all();
+
     }
 
 
@@ -28,7 +42,22 @@ class MessageController extends Controller
     {
         $message_array = $request->toArray();
         
+
+        Mail::raw($message_array['text'], function ($message) {
+            $tenants= Tenant::all('email');
+            $emails = [];
+            foreach ($tenants as $tenant) {
+                array_push($emails,$tenant['email']);
+            }
+
+            $message->from('admin@dandora.com', 'Dandora Admin');
+            $message->subject('NEW MESSAGE FROM DANDORA WELFARE');
+            $message->to('ndirangu.mepawa@outlook.com')->cc($emails);
+        });
+
         $message = Message::create($message_array);
+
+
         return $message;
     }
 
@@ -67,4 +96,6 @@ class MessageController extends Controller
     {
         //
     }
+
+   
 }
