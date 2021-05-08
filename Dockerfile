@@ -3,9 +3,4 @@ WORKDIR /app
 COPY . /app
 RUN composer global require hirak/prestissimo && composer install
 
-FROM php:7.4-buster
-
-COPY --from=build /app /app
-
-
 ENTRYPOINT [ "php", "artisan", "serve", "--port=8080" ]
