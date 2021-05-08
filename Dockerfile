@@ -44,6 +44,7 @@
 FROM php:7.4-fpm-alpine
 
 RUN apk add --no-cache nginx wget
+RUN docker-php-ext-install pdo pdo_mysql
 
 RUN mkdir -p /run/nginx
 
