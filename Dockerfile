@@ -1,9 +1,9 @@
-FROM composer:latest as build
+FROM composer:1.9 as build
 WORKDIR /app
 COPY . /app
 RUN composer global require hirak/prestissimo && composer install
 
-FROM php:8-alpine
+FROM php:7.4
 
 COPY --from=build /app /app
 
