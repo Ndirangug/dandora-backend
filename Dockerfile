@@ -11,6 +11,8 @@ COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN chmod 777 -R /var/www/storage/ && \
     echo "Listen 8080" >> /etc/apache2/ports.conf && \
     chown -R www-data:www-data /var/www/ && \
-    a2enmod rewrite && \
-    cd /var/www/ && \
-    php artisan serve --port=8080
+    a2enmod rewrite
+
+WORKDIR /var/www
+
+ENTRYPOINT [ "php", "artisan", "serve", "--port=8080" ]
