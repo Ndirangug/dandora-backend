@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . /app
 RUN composer global require hirak/prestissimo && composer install
 
-FROM php:7.4-buster
+FROM php:8-alpine
 
 COPY --from=build /app /app
 
