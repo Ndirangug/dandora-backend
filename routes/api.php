@@ -8,6 +8,7 @@ use App\Http\Controllers\HouseController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TenancyController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ReportsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,8 @@ Route::resource('tenancies', TenancyController::class);
 Route::resource('bookings', BookingController::class);
 Route::resource('payments', PaymentController::class);
 Route::resource('messages', MessageController::class);
+
+Route::get('/reports/booking/', [ReportsController::class, 'bookings']);
+Route::get('/reports/booking/current', [ReportsController::class, 'booked']);
+Route::get('/reports/payments', [ReportsController::class, 'payments']);
+Route::get('/reports/rent/overdue', [ReportsController::class, 'overdueRent']);

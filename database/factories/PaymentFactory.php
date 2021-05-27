@@ -29,7 +29,7 @@ class PaymentFactory extends Factory
             'amount' => $this->faker->randomFloat(2, 1000.0),
             'purpose' => $this->faker->randomElement(['booking', 'rent', 'contribution']),
             'tenancy_id' => random_int(1, 100),
-            'booking_id' => random_int(1, 100),
+            'booking_id' => random_int(105, 204),
             'tenant_id' => random_int(1, 10),
         ];
     }

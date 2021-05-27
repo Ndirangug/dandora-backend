@@ -30,7 +30,7 @@ class BookingController extends Controller
         $booking_array = $request->toArray();
         
         $booking = Booking::create($booking_array);
-        setHouseBooked($booking_array['house_id']);
+        $this->setHouseBooked($booking_array['house_id']);
         return $booking;
     }
 
