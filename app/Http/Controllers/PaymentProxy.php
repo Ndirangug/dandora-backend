@@ -11,22 +11,7 @@ class PaymentProxy extends Controller
     public function ipay(Request $request)
     {
         $ipayParams = $request->toArray();
-        // // $datastring = '';
-        // $hashkey ="demoCHANGED";
-        // // foreach ($ipayParams as $key => $value) {
-        // //    if ($key!= 'hsh') {
-        // //        $datastring .= $value;
-        // //    }
-        // // }
-        // $datastring =  $ipayParams['live'].$ipayParams['bonga'].$ipayParams['debitcard'].$ipayParams['creditcard'].$ipayParams['oid'].$ipayParams['inv'].$ipayParams['ttl'].$ipayParams['tel'].$ipayParams['eml'].$ipayParams['vid'].$ipayParams['curr'].$ipayParams['cbk'].$ipayParams['cst'].$ipayParams['crl'];
-   
-        // $generated_hash = hash_hmac('sha1',$datastring , $hashkey);
-        // $ipayParams['hsh'] = $generated_hash;
-
-        // $ipayUrl = 'https://payments.ipayafrica.com/v3/ke';
-
-        // $response = Http::post($ipayUrl, $ipayParams);
-
+       
         //Data needed by iPay a fair share of it obtained from the user from a form e.g email, number etc...
     $fields = array("live"=> "0",
     "oid"=> "112",
@@ -40,7 +25,7 @@ class PaymentProxy extends Controller
     "p2"=> "020102292999",
     "p3"=> "",
     "p4"=> "900",
-    "cbk"=> $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"],
+    "cbk"=> "http://localhost:8000/api/payments/receipt",
     "cst"=> "1",
     "crl"=> "2"
     );

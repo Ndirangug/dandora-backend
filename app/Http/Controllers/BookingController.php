@@ -50,6 +50,7 @@ class BookingController extends Controller
        $house = House::find($id);
        $house->booked = true;
        $house->save();
+       return $house;
     }
 
     public function unsetHouseBooked($id)
