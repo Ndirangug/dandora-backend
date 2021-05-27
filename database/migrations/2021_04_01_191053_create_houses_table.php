@@ -18,12 +18,14 @@ class CreateHousesTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('description');
+            $table->string('house_number');
+            $table->boolean('booked');
             $table->string('bedrooms');
             $table->double('rent');
             $table->string('phase');
-            $table->string('photo1');
-            $table->string('photo2');
-            $table->string('photo3');
+            $table->string('photo1')->nullable();
+            $table->string('photo2')->nullable();
+            $table->string('photo3')->nullable();
         });
     }
 

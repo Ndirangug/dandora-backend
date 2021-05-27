@@ -28,9 +28,9 @@ class PaymentFactory extends Factory
             'for_month' => $this->faker->dateTimeBetween($date, '+90 days'),
             'amount' => $this->faker->randomFloat(2, 1000.0),
             'purpose' => $this->faker->randomElement(['booking', 'rent', 'contribution']),
-            'tenancy_id' => random_int(4, 13),
-            'booking_id' => random_int(1, 11),
-            'tenant_id' => random_int(11, 20),
+            'tenancy_id' => random_int(1, 100),
+            'booking_id' => random_int(1, 100),
+            'tenant_id' => random_int(1, 10),
         ];
     }
 }

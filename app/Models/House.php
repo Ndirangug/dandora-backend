@@ -18,6 +18,8 @@ class House extends Model
         'title',
         'description',
         'bedrooms',
+        'house_number',
+        'booked',
         'rent',
         'phase',
         'photo1',
@@ -53,5 +55,7 @@ class House extends Model
     protected $casts = [
         'bedrooms' => 'integer',
         'rent' => 'double',
+        'booked' => 'boolean',
+        
     ];
 }

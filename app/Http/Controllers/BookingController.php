@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\House;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -29,6 +30,7 @@ class BookingController extends Controller
         $booking_array = $request->toArray();
         
         $booking = Booking::create($booking_array);
+        setHouseBooked($booking_array['house_id']);
         return $booking;
     }
 
@@ -41,6 +43,21 @@ class BookingController extends Controller
     public function show(Booking $booking)
     {
         return $booking;
+    }
+
+    public function setHouseBooked($id)
+    {
+       $house = House::find($id);
+       $house->booked = true;
+       $house->save();
+    }
+
+    public function unsetHouseBooked($id)
+    {   
+        $house = House::find($id);
+        $house->booked = false;
+        $house->save();
+        return $house;
     }
 
 

@@ -25,7 +25,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/login', [TenantController::class, 'login']);
-
+Route::post('/payments/receipt', [PaymentController::class, 'receipt']);
+Route::post('/houses/unbook/{id}', [BookingController::class, 'unsetHouseBooked']);
 
 Route::resource('tenants', TenantController::class);
 Route::resource('houses', HouseController::class);

@@ -17,6 +17,8 @@ class PaymentController extends Controller
         return Payment::all();
     }
 
+
+
     
     /**
      * Store a newly created resource in storage.
@@ -65,5 +67,11 @@ class PaymentController extends Controller
     public function destroy(Payment $payment)
     {
         //
+    }
+
+    public function receipt(Request $request)
+    {
+        $request_array = $request->toArray();
+        return $request_array;
     }
 }

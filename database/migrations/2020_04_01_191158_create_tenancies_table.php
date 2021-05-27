@@ -13,6 +13,7 @@ class CreateTenanciesTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('tenancies', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
