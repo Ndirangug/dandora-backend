@@ -20,8 +20,11 @@ class ReportsController extends Controller
     }
 
     public function booked(){
+        // ->where('bookings.created_at', '=', function ($query) {
+        //     $query->selectRaw('max(bookings.created_at)')->from('bookings');
+        // })->
         // currently booked
-        $houses = House::where('booked', true)->join('bookings', 'houses.id', '=', 'bookings.house_id')->join('tenants', 'tenants.id', '=', 'bookings.tenant_id')->select('houses.house_number', 'bookings.expected_occupy_date', 'bookings.paid', 'bookings.date_booked', 'tenants.first_name', 'tenants.last_name', 'tenants.phone')->get();
+        $houses = House::where('booked', true)->groupBy('houses.id')->join('bookings', 'houses.id', '=', 'bookings.house_id')->orderByDesc('bookings.created_at')->join('tenants', 'tenants.id', '=', 'bookings.tenant_id')->select('houses.house_number', 'bookings.expected_occupy_date', 'bookings.paid', 'bookings.date_booked', 'tenants.first_name', 'tenants.last_name', 'tenants.phone')->get();
         return $houses;
     }
 
